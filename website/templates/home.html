@@ -1,0 +1,186 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+
+<div class="home-tab"
+style="
+background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%,rgba(255,255,255,0.6) 100%), url(https://financialservicesblog.accenture.com/wp-content/uploads/2020/10/HR_Data.jpg);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: auto;
+height: 100%;"
+>
+<br/> <h1
+      style="
+        color: white;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font: size 50px;
+        text-align: left;
+        margin-left: 10px;
+        text-align: center;
+      "
+    >
+   <b>Employee Attrition Model</b>
+    </h1>
+
+<div class="tab-content">
+  <br />
+  <form
+    method="POST"
+    action="/prediction"
+    style="
+      padding: 16px;
+      background-color: rgb(255, 254, 254, 0.5);
+      font-size: large;
+      max-width: 630px;
+      margin: auto;
+    "
+  >
+    <div class="container">
+      <label for="emp_id"><b>Employee ID</b></label>
+      <br />
+      <input
+        type="number"
+        placeholder="Enter Employee ID"
+        style="
+          width: 50%;
+          padding: 10px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+        "
+        name="emp_id"
+        id="emp_id"
+        min="1" 
+        max="4410"
+        autocomplete="on"
+        required
+        oninvalid="this.setCustomValidity('This ID does not exist')"
+        oninput="this.setCustomValidity('')"
+      />
+      
+
+      <br />
+      <label for="deptN"><b>Department</b></label>
+      <br />
+      <select
+        style="
+          width: 50%;
+          padding: 10px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+        "
+        name="deptN"
+        id="deptN"
+        required
+      >
+        <option value="Human Resources">Human Resources</option>
+        <option value="Research & Development">Research & Development</option>
+        <option value="Sales">Sales</option>
+      </select>
+
+      <br />
+      <label for="jobrole"><b>Job Role</b></label>
+      <br />
+      <select
+        style="
+          width: 50%;
+          padding: 10px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+        "
+        name="jobrole"
+        id="jobrole"
+        required
+      >
+        <option value="Healthcare Representative"><b>Healthcare Representative</b></option>
+        <option value="Human Resources"><b>Human Resources</b></option>
+        <option value="Laboratory Technician"><b>Laboratory Technician</b></option>
+        <option value="Manager"><b>Manager</b></option>
+        <option value="Manufacturing Director"><b>Manufacturing Director</b></option>
+        <option value="Research Director"><b>Research Director</b></option>
+        <option value="Research Scientist"><b>Research Scientist</b></option>
+        <option value="Sales Executive"><b>Sales Executive</b></option>
+        <option value="Sales Representative"><b>Sales Representative</b></option>
+      </select>
+
+      <br />
+      <label for="last_promo"><b>Years Since Last Promotion</b></label>
+      <br />
+      <input
+        type="number"
+        placeholder="Enter No. of Years"
+        style="
+          width: 50%;
+          padding: 10px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+        "
+        name="last_promo"
+        id="last_promo"
+        required
+      />
+
+      <br />
+      <label for="hike"><b>Salary Hike (in %)</b></label>
+      <br />
+      <input
+        type="number"
+        placeholder="Enter Salary Hike"
+        style="
+          width: 50%;
+          padding: 10px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+        "
+        name="hike"
+        id="hike"
+        required
+      />
+     
+      <br />
+
+      <button
+        type="submit"
+        class="predictbtn"
+        style="
+          background-color: #04aa6d;
+          color: white;
+          padding: 16px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          opacity: 0.9;
+        "
+      >
+        Predict
+      </button>
+
+      <input
+        id="clear"
+        type="reset"
+        class="clearbtn"
+        style="
+          background-color: #000000;
+          color: white;
+          padding: 16px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          opacity: 0.9;
+        "
+      />
+    </div>
+  </form>
+  <br/>
+</div>
+  {% endblock %}
+
