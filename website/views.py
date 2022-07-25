@@ -35,7 +35,7 @@ def prediction():
     
     body = "Attrition score for Employee ID: " + str(emp_id) + " is " + str(score) + "\nStatus: " + prob_status
     client.send_message(
-            message={"to": { "email": "giftyreji99@gmail.com"}, 
+            message={"to": { "email": "viren.sahajwala@gmail.com"}, 
             "routing": {"method": "single", "channels": ["email"]},
           "channels" : {"email": {"providers": ["gmail"] }},
           "content": {
